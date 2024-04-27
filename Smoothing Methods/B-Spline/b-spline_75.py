@@ -61,7 +61,7 @@ def main():
     true_RNP = np.array(true_RNP) # psia2/cp-d/Mscf
 
     # Specify the folder path and file name for result file
-    folder_path = "C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/25%/"
+    folder_path = "C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/75%/"
 
     # Create the directory if it doesn't exist
     if not os.path.exists(folder_path):
@@ -76,20 +76,20 @@ def main():
 
     # Process the B-Spline smoothing over the range of noisy data
     number_data_set = 10
-    initial_data_set_number = 180
+    initial_data_set_number = 200
     data_set = []
     sse_store = []
     for i in range (1, number_data_set + 1):
         data_set_number = initial_data_set_number + i
         print("----- Noisy Data:", data_set_number, "-----")
         # Read the noisy RNP data
-        noisy_RNP_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Outlier Detection Paper/Outlier Detection Simulator/Noisy RNP Model/All/25%/noisy_data_{i}.txt"
+        noisy_RNP_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Outlier Detection Paper/Outlier Detection Simulator/Noisy RNP Model/All/75%/noisy_data_{i}.txt"
         noisy_time, noisy_RNP = read_noisy_RNP(noisy_RNP_file_path) # days, psia2/cp-d/Mscf
         noisy_time = np.array(noisy_time) # days
         noisy_RNP = np.array(noisy_RNP) # psia2/cp-d/Mscf
         
         # Specify the sub-folder path and file name for result file
-        subfolder_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/25%/Data Set {data_set_number}/"
+        subfolder_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/75%/Data Set {data_set_number}/"
 
         # Create the directory if it doesn't exist
         if not os.path.exists(subfolder_path):
@@ -113,7 +113,7 @@ def main():
         smoothed_RNP = np.exp(gam.predict(np.log(noisy_time)))
 
         # Export smoothed results
-        smoothed_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/25%/Data Set {data_set_number}/smoothed_RNP_{data_set_number}.txt"
+        smoothed_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/75%/Data Set {data_set_number}/smoothed_RNP_{data_set_number}.txt"
         with open(smoothed_file_path, "w") as file:
             # Write the header
             file.write("t(days)\tsmoothed_RNP(psia2/cp-d/Mscf)\n")
@@ -132,7 +132,7 @@ def main():
             sse += relative_residual[j] ** 2
         
         # Export residual results
-        residual_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/25%/Data Set {data_set_number}/residual_{data_set_number}.txt"
+        residual_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/75%/Data Set {data_set_number}/residual_{data_set_number}.txt"
         with open(residual_file_path, "w") as file:
             # Write the header
             file.write("t(days)\tresidual_RNP(psia2/cp-d/Mscf)\n")
@@ -145,7 +145,7 @@ def main():
         data_set.append(data_set_number)
         sse_store.append(sse)
 
-        sse_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/25%/SSE_results_25%.txt"
+        sse_file_path = f"C:/Users/ASUS/Documents/Kuliah/2. Master's Texas A&M University/Publications/Conference Paper/Smoothing Paper/Smoothing Simulator/Smoothing Methods/B-Spline/75%/SSE_results_75%.txt"
         with open(sse_file_path, "w") as file:
             # Write the header
             file.write("Data_Set\tSSE\n")
