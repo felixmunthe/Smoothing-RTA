@@ -1,7 +1,7 @@
-# About the Project
+# Introduction
 This repository contains the research and implementation of various smoothing techniques applied to rate-normalized pressure (RNP) data aimed at improving trend detection in rate-transient analysis (RTA). Our study evaluates the effectiveness of these methods in identifying underlying patterns and enhancing the accuracy of critical metrics like flow regime times and reservoir characteristics.
 
-# Project Highlights
+# Highlights
 - Comparison of Five Smoothing Methods: Evaluating their performance based on the sum of square errors (SSE).
 - Optimization of LoWeSS Parameters: Identifying the optimal window size and its impact on noise reduction.
 - Detailed Analysis of Smoothing Outcomes: Assessing the accuracy improvements in parameter extraction and the robustness of the methods against various noise levels and outlier scenarios.
